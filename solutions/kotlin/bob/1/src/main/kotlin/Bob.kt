@@ -1,0 +1,20 @@
+object Bob {
+    fun hey(input: String): String {
+        val trimmed = input.trim()
+
+        if (trimmed.isEmpty()) {
+            return "Fine. Be that way!"
+        }
+
+        val isQuestion = trimmed.endsWith("?")
+        val hasLetters = trimmed.any { it.isLetter() }
+        val isYelling = hasLetters && trimmed == trimmed.uppercase()
+
+        return when {
+            isYelling && isQuestion -> "Calm down, I know what I'm doing!"
+            isYelling -> "Whoa, chill out!"
+            isQuestion -> "Sure."
+            else -> "Whatever."
+        }
+    }
+}
